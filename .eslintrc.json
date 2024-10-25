@@ -1,55 +1,55 @@
 {
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "prettier"],
-    "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "plugin:node/recommended",
-        "prettier"
+  "plugins": ["eslint-plugin-prettier", "import"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:node/recommended",
+    "prettier",
+    "eslint-config-prettier"
+  ],
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/explicit-member-accessibility": "warn",
+    "@typescript-eslint/no-misused-promises": 0,
+    "@typescript-eslint/no-floating-promises": 0,
+    "@typescript-eslint/restrict-template-expressions": "warn",
+    "max-len": [
+      "warn",
+      {
+        "code": 150
+      }
     ],
-    "env": {
-        "es2021": true,
-        "node": true
-    },
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    },
-    "rules": {
-        "@typescript-eslint/explicit-member-accessibility": "warn",
-        "@typescript-eslint/no-misused-promises": 0,
-        "@typescript-eslint/no-floating-promises": 0,
-        "@typescript-eslint/restrict-template-expressions": "warn",
-        "max-len": [
-            "warn",
-            {
-                "code": 150
-            }
-        ],
-        "comma-dangle": ["warn", "always-multiline"],
-        "no-console": 1,
-        "no-extra-boolean-cast": 0,
-        "semi": 1,
-        "indent": ["warn", 2],
-        "quotes": ["warn", "single"],
-        "node/no-unsupported-features/es-syntax": [
-            "error",
-            {
-                "ignores": ["modules"]
-            }
-        ],
-        "node/no-missing-import": 0,
-        "node/no-unpublished-import": 0,
-        "prettier/prettier": [
-            "error",
-            {
-              "endOfLine": "auto"
-            }
-        ]
-    },
-    "settings": {
-        "node": {
-            "tryExtensions": [".js", ".json", ".node", ".ts"]
-        }
+    "comma-dangle": ["warn", "always-multiline"],
+    "no-console": 1,
+    "no-extra-boolean-cast": 0,
+    "semi": 1,
+    "indent": ["warn", 2],
+    "quotes": ["warn", "single"],
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": ["modules"]
+      }
+    ],
+    "node/no-missing-import": 0,
+    "node/no-unpublished-import": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "settings": {
+    "node": {
+      "tryExtensions": [".js", ".json", ".node", ".ts"]
     }
+  }
 }
