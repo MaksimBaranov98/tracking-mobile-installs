@@ -1,8 +1,12 @@
 import { config } from './config';
 import express from 'express';
+import path from 'path';
+import serverRoutes from './routes/servers';
 
 const app = express();
 
-const startCallback = () => console.log(`Server has been started on port ${config.PORT}`);
+app.use(express.static(path.resolve(__dirname, 'static')));
 
-app.listen(config.PORT, startCallback);
+app.use(serverRoutes);
+
+app.listen(config.PORT, () => console.log(`Server has been started on port ${config.PORT}`));

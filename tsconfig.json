@@ -7,10 +7,10 @@
     "strict": true,
     "baseUrl": ".",
     "esModuleInterop": true,
-    "skipLibCheck": true
-  },
-  "paths": {
-    "@/*": ["src/*"]
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": ["src/**/*.ts", "spec/**/*.ts", "build.ts"]
 }
