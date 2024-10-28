@@ -5,12 +5,12 @@ export default async function (req: Request, res: Response) {
   const userIsExist = await user.userIsExist(req);
 
   if (userIsExist) {
-    res.send({ isOk: true });
+    res.send({ isSuccess: true });
 
     return;
   }
 
   const dbRes = await user.createUser(req);
 
-  res.send({value: dbRes});
+  res.send({ isSuccess: dbRes });
 }

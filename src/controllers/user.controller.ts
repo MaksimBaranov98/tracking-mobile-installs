@@ -8,6 +8,12 @@ interface UserData {
   evm_address: string;
   substrate_address: string;
   campaign_name: string;
+  platform: number;
+}
+
+enum Platform {
+  'android',
+  'ios',
 }
 
 const dbPath = `${config.DB_SCHEMA_NAME}.${config.DB_TABLE_NAME}`;
@@ -15,11 +21,15 @@ const dbPath = `${config.DB_SCHEMA_NAME}.${config.DB_TABLE_NAME}`;
 class UserController {
   async createUser(req: Request) {
     try {
-      const { substrate_address, evm_address, twitter, telegram, campaign_name } = req.body as UserData;
+      const { substrate_address, evm_address, twitter, telegram, campaign_name, platform } = req.body as UserData;
+
+      if (!substrate_address && !evm_address && !twitter && !telegram) return false;
+
+      const _platform = Platform[platform] ?? Platform.android;
 
       await pool.query(
-        `INSERT INTO ${dbPath} (substrate_address, evm_address, twitter, telegram, campaign_name) values($1, $2, $3, $4, $5)`,
-        [substrate_address, evm_address, twitter, telegram, campaign_name]
+        `INSERT INTO ${dbPath} (substrate_address, evm_address, twitter, telegram, campaign_name, platform) values($1, $2, $3, $4, $5, $6)`,
+        [substrate_address, evm_address, twitter, telegram, campaign_name, _platform]
       );
 
       return true;
