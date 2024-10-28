@@ -7,11 +7,20 @@
   </head>
   <body>
     <div>
-      <h1>Request:</h1>
+      <h1>API:</h1>
 
       <div>1. get: /api/task/social_verification?address=example</div>
 
-      <div>2. post: /api/task/save_user</div>
+      <div>2. post: /api/task/save_user
+        {
+          "substrate_address": "string",
+          "evm_address": "string",
+          "twitter": "string",
+          "telegram": "string",
+          "campaign_name": "string",
+          "platform": "number,  0 = android, 1 = ios"
+       }
+      </div>
     </div>
   </body>
 </html>
