@@ -3634,9 +3634,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tracking-mobile-installs@workspace:.":
+"tracking-installs-service@workspace:.":
   version: 0.0.0-use.local
-  resolution: "tracking-mobile-installs@workspace:."
+  resolution: "tracking-installs-service@workspace:."
   dependencies:
     "@types/express": ^4.17.17
     "@types/node": ^22.7.9
