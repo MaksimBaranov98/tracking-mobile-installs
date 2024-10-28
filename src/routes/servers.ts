@@ -6,6 +6,6 @@ const router = Router();
 
 router.get('/api/task/social_verification', (req, res) => socialVerification(req, res));
 
-router.post('/api/task/save_user', (req, res) => saveUser(req, res));
+router.post('/api/save_user', (req, res) => saveUser(req, res));
 
 export default router;

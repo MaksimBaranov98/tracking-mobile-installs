@@ -1,11 +1,16 @@
 import { Request, Response } from 'express';
-import { checkUserExist } from '../../database';
-import { SocialVerificationRequest } from 'src/types/getRequests';
+import user from '../../controllers/user.controller';
 
 export default async function (req: Request, res: Response) {
-  console.log('req', req.query);
+  const userIsExist = await user.userIsExist(req);
 
-  // const userExist = await checkUserExist(req.query as unknown as SocialVerificationRequest);
+  if (userIsExist) {
+    res.send({ isOk: true });
 
-  // res.send(userExist);
+    return;
+  }
+
+  const dbRes = await user.createUser(req);
+
+  res.send({value: dbRes});
 }
