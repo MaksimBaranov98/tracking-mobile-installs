@@ -5,6 +5,7 @@
   "description": "Tracking mobile instals",
   "main": "index.ts",
   "scripts": {
+    "preinstall": "corepack enable",
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 src/**/*.html dist/",
     "build": "yarn clean && tsc && yarn copy-files",

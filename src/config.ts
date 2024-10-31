@@ -15,5 +15,3 @@ export const config = {
   DB_TABLE_NAME,
   DB_PORT: +DB_PORT,
 };
-
-console.log(config);
